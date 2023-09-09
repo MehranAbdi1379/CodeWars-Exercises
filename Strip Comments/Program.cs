@@ -9,6 +9,7 @@ internal class Program
 
     public static string StripComments(string text, string[] commentSymbols)
     {
+        //TODO: Make it work even if \n are repeated a couple of times
         text += "\n";
         foreach (var symbol in commentSymbols)
         {
