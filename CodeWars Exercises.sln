@@ -13,11 +13,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MediatorPatternExercise", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSharpHeckaton", "CSharpHeckaton\CSharpHeckaton.csproj", "{EEC9E714-8AB4-4327-A859-759B676CE75A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WhoLikesIt", "WhoLikesIt\WhoLikesIt.csproj", "{8E284B38-6308-4C26-ACE1-4C6F4580D968}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WhoLikesIt", "WhoLikesIt\WhoLikesIt.csproj", "{8E284B38-6308-4C26-ACE1-4C6F4580D968}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CountingSheep", "CountingSheep\CountingSheep.csproj", "{FA89E9DC-1BA3-44AC-96E5-C4CFE4423355}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CountingSheep", "CountingSheep\CountingSheep.csproj", "{FA89E9DC-1BA3-44AC-96E5-C4CFE4423355}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParseInt", "ParseInt\ParseInt.csproj", "{5939CA30-E527-47E8-8673-BF86666AEBD1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ParseInt", "ParseInt\ParseInt.csproj", "{5939CA30-E527-47E8-8673-BF86666AEBD1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Convert PascalCase string into snake_case", "Convert PascalCase string into snake_case\Convert PascalCase string into snake_case.csproj", "{A7D0DEB3-7E37-4389-9381-677EA0E5DBA6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +59,10 @@ Global
 		{5939CA30-E527-47E8-8673-BF86666AEBD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5939CA30-E527-47E8-8673-BF86666AEBD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5939CA30-E527-47E8-8673-BF86666AEBD1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7D0DEB3-7E37-4389-9381-677EA0E5DBA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7D0DEB3-7E37-4389-9381-677EA0E5DBA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7D0DEB3-7E37-4389-9381-677EA0E5DBA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7D0DEB3-7E37-4389-9381-677EA0E5DBA6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
