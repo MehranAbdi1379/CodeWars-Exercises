@@ -1,24 +1,89 @@
 ﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+Console.WriteLine(ParseInt("five million"));
 
 static int ParseInt(string s)
 {
-    s = s.Replace("and ", "");
+    s = s.Replace(" and ", " ");
 
     var words = s.Split(' ');
 
     switch (words.Length)
     {
-        case 0:
-            if (CheckForOneDigitNumbers(s) == -1)
-                return CheckForTwoDigitUsualNumbers(s);
-            else return CheckForOneDigitNumbers(s);
         case 1:
-            return 0;
+            return CheckForOneWord(words[0]);
         case 2:
-            return 0;
+            return CheckForTwoWords(words);
         default:
-            return 0;
+            return CheckForMoreThanTwoWords(words);
+    }
+}
+
+static int CheckForOneWord(string s)
+{
+    if (CheckForOneDigitNumbers(s) != -1)
+        return CheckForOneDigitNumbers(s);
+    else if (CheckForTwoDigitUnusualNumbers(s) != -1)
+        return CheckForTwoDigitUnusualNumbers(s);
+    else return CheckForTwoDigitUsualNumbers(s);
+}
+
+static int CheckForMoreThanTwoWords(string[] words)
+{
+    var wordsList = words.ToList();
+    var result = 0;
+    if (words.Contains("thousand"))
+    {
+        var beforeThousand = new List<string>();
+        var afterThousands = new List<string>();
+
+        SplitListToBeforeThousandAndAfter(words, beforeThousand, afterThousands);
+
+        if (beforeThousand.Count == 1)
+            result += CheckForOneWord(beforeThousand[0]) * 1000;
+        else if (beforeThousand.Count == 2)
+            result += CheckForOneDigitNumbers(beforeThousand[0]) * 100000;
+        else if (beforeThousand.Count == 3)
+            result += (CheckForOneDigitNumbers(beforeThousand[0]) * 100000) + (CheckForOneWord(words[2]) * 1000);
+
+        if (afterThousands.Count == 1)
+            result += CheckForOneWord(afterThousands[0]);
+        else if (afterThousands.Count == 2)
+            result += CheckForOneDigitNumbers(afterThousands[0]) * 100;
+        else if (afterThousands.Count == 3)
+            result += (CheckForOneDigitNumbers(afterThousands[0]) * 100) + CheckForOneWord(afterThousands[2]);
+    }
+    else
+    {
+        result += (CheckForOneDigitNumbers(words[0]) * 100) + CheckForOneWord(words[2]);
+    }
+    return result;
+}
+
+static void SplitListToBeforeThousandAndAfter(string[] words , List<string> beforeThousand , List<string> afterThousand)
+{
+    var foundSplitElement = false;
+
+    foreach (string item in words)
+    {
+        if (item == "thousand")
+        {
+            foundSplitElement = true;
+            continue;
+        }
+        if (!foundSplitElement)
+        {
+            beforeThousand.Add(item);
+        }
+        else
+        {
+            afterThousand.Add(item);
+        }
     }
 }
 
@@ -26,6 +91,7 @@ static int CheckForOneDigitNumbers(string number)
 {
     return number switch
     {
+        string newNumber when newNumber == "zero" => 0,
         string newNumber when newNumber == "one" => 1,
         string newNumber when newNumber == "two" => 2,
         string newNumber when newNumber == "three" => 3,
@@ -60,7 +126,8 @@ static int CheckForTwoDigitUnusualNumbers(string number)
         string newNumber when newNumber == "sixty" => 60,
         string newNumber when newNumber == "seventy" => 70,
         string newNumber when newNumber == "eighty" => 80,
-        string newNumber when newNumber == "ninety" => 90
+        string newNumber when newNumber == "ninety" => 90,
+        _ => -1
     };
 }
 
@@ -74,4 +141,16 @@ static int CheckForTwoDigitUsualNumbers(string number)
     result += CheckForOneDigitNumbers(ones);
 
     return result;
+}
+
+static int CheckForTwoWords(string[] words)
+{
+    var multiplier = words switch
+    {
+        string[] tempWords when tempWords[1] == "hundred" => 100,
+        string[] tempWords when tempWords[1] == "thousand" => 1000,
+        string[] tempWords when tempWords[1] == "million" => 1000000,
+        _ => -1
+    };
+    return CheckForOneWord(words[0]) * multiplier;
 }
