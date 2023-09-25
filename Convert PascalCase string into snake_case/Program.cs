@@ -6,6 +6,7 @@ Console.WriteLine(ToUnderscore("TestController98This"));
 
 static string ToUnderscore(string str)
 {
+	return Regex.Replace(str, "(\\B[A-Z]\\B)", "_$1").ToLower();
     var result = str[0].ToString();
 	for (int i = 1; i < str.Length; i++)
 	{
