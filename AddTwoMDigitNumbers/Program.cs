@@ -1,32 +1,53 @@
 ﻿// See https://aka.ms/new-console-template for more information
+using Bogus;
 
-int carry = 0;
-string number1 = "235", number2 = "826";
-string sum = "" , sumReversed = "";
-int NumberLength = number1.ToString().Length;
-bool hasCarry = false;
+var categoryFaker = new Faker<Category>()
+            .RuleFor(c => c.Id, f => f.Random.Guid())
+            .RuleFor(c => c.Title, f => f.Commerce.Categories(1)[0]);
 
-for (int i = NumberLength-1; i >= 0; i--)
+var faker = new Faker(); // Create a Faker instance
+
+// Generate a list of dummy categories without ParentId values
+var categoriesWithoutParent = categoryFaker.Generate(20); // Generate 20 categories, adjust as needed
+
+// Clone the categories to another list for assigning parent IDs
+var categories = new List<Category>(categoriesWithoutParent);
+
+// Assign ParentId values based on the cloned list
+foreach (var category in categories)
 {
-    carry = int.Parse(number1[i].ToString()) + int.Parse(number2[i].ToString()) ;
-    if (hasCarry)
-        carry++;
-    if(carry > 9)
+    if (categories.Count > 0 && category.Id != categories[0].Id) // Ensure the category is not the first one
     {
-        carry = carry - 10;
-        hasCarry = true;
+        // Introduce a one-third chance of having no parent
+        if (faker.Random.Bool(0.33f))
+        {
+            category.ParentId = null; // No ParentId
+        }
+        else
+        {
+            // Generate a unique ParentId that is not the same as the instance Id
+            Guid parentId;
+            do
+            {
+                int index = faker.Random.Int(0, categories.Count - 1);
+                parentId = categories[index].Id;
+            } while (parentId == category.Id);
+
+            category.ParentId = parentId;
+        }
     }
-    else
-        hasCarry = false;
-    if (i == 0 && hasCarry)
-        sum += $"{carry}1";
-    else 
-        sum += carry;
 }
 
-for (int i = sum.Length-1; i >=0; i--)
+// Display the generated data
+foreach (var category in categories)
 {
-    sumReversed += sum[i];
+    Console.WriteLine($"Id: {category.Id}, Title: {category.Title}, ParentId: {category.ParentId}");
 }
 
-Console.WriteLine(sumReversed);
+
+public class Category
+{
+    public Guid Id { get; set; }
+    public string Title { get; set; }
+    public Guid? ParentId { get; set; }
+}
