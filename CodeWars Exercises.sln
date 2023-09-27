@@ -19,11 +19,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CountingSheep", "CountingSh
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ParseInt", "ParseInt\ParseInt.csproj", "{5939CA30-E527-47E8-8673-BF86666AEBD1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Convert PascalCase string into snake_case", "Convert PascalCase string into snake_case\Convert PascalCase string into snake_case.csproj", "{A7D0DEB3-7E37-4389-9381-677EA0E5DBA6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Convert PascalCase string into snake_case", "Convert PascalCase string into snake_case\Convert PascalCase string into snake_case.csproj", "{A7D0DEB3-7E37-4389-9381-677EA0E5DBA6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Perimeter of squares in a rectangle", "Perimeter of squares in a rectangle\Perimeter of squares in a rectangle.csproj", "{32F0D46C-88FD-4F96-A99F-02594E1EE0EE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Perimeter of squares in a rectangle", "Perimeter of squares in a rectangle\Perimeter of squares in a rectangle.csproj", "{32F0D46C-88FD-4F96-A99F-02594E1EE0EE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Last digit of a large number", "Last digit of a large number\Last digit of a large number.csproj", "{EBBA83BA-F476-4C86-9924-2434AC223E30}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Last digit of a large number", "Last digit of a large number\Last digit of a large number.csproj", "{EBBA83BA-F476-4C86-9924-2434AC223E30}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QueraQuiz", "QueraQuiz\QueraQuiz.csproj", "{1168CE8F-F96E-4757-916F-06D76A72312B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -75,6 +77,10 @@ Global
 		{EBBA83BA-F476-4C86-9924-2434AC223E30}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EBBA83BA-F476-4C86-9924-2434AC223E30}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EBBA83BA-F476-4C86-9924-2434AC223E30}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1168CE8F-F96E-4757-916F-06D76A72312B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1168CE8F-F96E-4757-916F-06D76A72312B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1168CE8F-F96E-4757-916F-06D76A72312B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1168CE8F-F96E-4757-916F-06D76A72312B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
