@@ -1,66 +1,88 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using System.Collections;
+using System.IO.Pipes;
 
-var texts = new string[2] {"this" , "that"};
-
-var collection = new MyCollection<string>(texts);
-
-foreach (var item in collection.items)
+var iphone14 = new Product()
 {
-    Console.WriteLine(item);
+    Id = 1,
+    Name = "iPhone14"
+};
+var iphone15 = new Product()
+{
+    Id = 2,
+    Name = "iPhone 15"
+};
+
+var inventoryMashhad = new Inventory();
+
+inventoryMashhad.AddProduct(iphone14);
+inventoryMashhad.AddProduct(iphone15);
+inventoryMashhad.AddProduct(iphone14);
+inventoryMashhad.AddProduct(iphone14);
+
+var inventoryShiraz = new Inventory();
+
+inventoryShiraz.AddProduct(iphone15);
+inventoryShiraz.AddProduct(iphone15);
+inventoryShiraz.AddProduct(iphone15);
+inventoryShiraz.AddProduct(iphone14);
+
+var inventoryTehran = new Inventory();
+
+inventoryTehran.AddProduct(iphone15);
+inventoryTehran.AddProduct(iphone15);
+inventoryTehran.AddProduct(iphone14);
+
+var resultInventory = inventoryShiraz + inventoryMashhad + inventoryTehran;
+
+foreach (var product in resultInventory.GetProducts())
+{
+    Console.WriteLine($"Product Id: {product.Id}, Product Name: {product.Name}");
 }
 
 
-public class MyCollection<T> : IEnumerable<T>
+
+
+class Inventory
 {
-    public T[] items;
-
-    public MyCollection(T[] items)
+    List<Product> Products;
+    public Inventory()
     {
-        this.items = items;
+        Products = new List<Product>();
     }
 
-    public IEnumerator<T> GetEnumerator()
+    public List<Product> GetProducts()
     {
-        return new MyCollectionEnumerator<T>(this);
+        return Products;
     }
 
-    IEnumerator IEnumerable.GetEnumerator()
+    public void AddProduct(Product product)
     {
-        return GetEnumerator();
+        Products.Add(product);
     }
-}
 
-public class MyCollectionEnumerator<T> : IEnumerator<T>
-{
-    private MyCollection<T> collection;
-    private int currentIndex = -1;
-    public MyCollectionEnumerator(MyCollection<T> collection)
+    public int CountOfProduct(int productId)
     {
-        this.collection = collection;
+        return Products.Where(p => p.Id == productId).Count();
     }
-    public T Current { get
+
+    public static Inventory operator + (Inventory a , Inventory b)
+    {
+        Inventory result = new Inventory();
+        foreach (var product in a.Products)
         {
-            if (currentIndex == -1 || currentIndex >= collection.items.Length)
-                throw new InvalidOperationException();
-            return collection.items[currentIndex];
-        } }
-
-    object IEnumerator.Current => Current;
-
-    public void Dispose()
-    {
-        throw new NotImplementedException();
+            result.AddProduct(product);
+        }
+        foreach (var product in b.Products)
+        {
+            result.AddProduct(product);
+        }
+        return result;
     }
+}
 
-    public bool MoveNext()
-    {
-        currentIndex++;
-        return currentIndex < collection.items.Length;
-    }
-
-    public void Reset()
-    {
-        currentIndex = -1;
-    }
+public class Product
+{
+    public int Id { get; set; }
+    public string Name{ get; set; }
 }

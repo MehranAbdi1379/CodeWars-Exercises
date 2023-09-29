@@ -146,23 +146,6 @@ class Dijkstra
         PrintResult(dist);
     }
 
-    private int FindMinDistance(int[] dist, bool[] visited)
-    {
-        long min = long.MaxValue;
-        int minIndex = -1;
-
-        for (int v = 0; v < V; ++v)
-        {
-            if (!visited[v] && dist[v] <= min)
-            {
-                min = dist[v];
-                minIndex = v;
-            }
-        }
-
-        return minIndex;
-    }
-
     private void PrintResult(long[] dist)
     {
         for (int i = 0; i < dist.Length; i++)
