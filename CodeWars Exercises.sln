@@ -25,7 +25,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Perimeter of squares in a r
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Last digit of a large number", "Last digit of a large number\Last digit of a large number.csproj", "{EBBA83BA-F476-4C86-9924-2434AC223E30}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QueraQuiz", "QueraQuiz\QueraQuiz.csproj", "{1168CE8F-F96E-4757-916F-06D76A72312B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QueraQuiz", "QueraQuiz\QueraQuiz.csproj", "{1168CE8F-F96E-4757-916F-06D76A72312B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoManyPermutations", "SoManyPermutations\SoManyPermutations.csproj", "{1D9684B7-DE72-4152-964A-A13EC6C33B22}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -81,6 +83,10 @@ Global
 		{1168CE8F-F96E-4757-916F-06D76A72312B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1168CE8F-F96E-4757-916F-06D76A72312B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1168CE8F-F96E-4757-916F-06D76A72312B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D9684B7-DE72-4152-964A-A13EC6C33B22}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D9684B7-DE72-4152-964A-A13EC6C33B22}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D9684B7-DE72-4152-964A-A13EC6C33B22}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D9684B7-DE72-4152-964A-A13EC6C33B22}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
