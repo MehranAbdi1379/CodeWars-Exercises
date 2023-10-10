@@ -31,6 +31,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SoManyPermutations", "SoMan
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PracticeLinq", "PracticeLinq\PracticeLinq.csproj", "{2955E3C4-E4C3-4D78-B3BE-F1AD470EB52C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HumanReadableDurationFormat", "HumanReadableDurationFormat\HumanReadableDurationFormat.csproj", "{AA6FF8B9-6828-4248-ADC9-0F95D96B2E15}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -93,6 +95,10 @@ Global
 		{2955E3C4-E4C3-4D78-B3BE-F1AD470EB52C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2955E3C4-E4C3-4D78-B3BE-F1AD470EB52C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2955E3C4-E4C3-4D78-B3BE-F1AD470EB52C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA6FF8B9-6828-4248-ADC9-0F95D96B2E15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA6FF8B9-6828-4248-ADC9-0F95D96B2E15}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA6FF8B9-6828-4248-ADC9-0F95D96B2E15}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA6FF8B9-6828-4248-ADC9-0F95D96B2E15}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
