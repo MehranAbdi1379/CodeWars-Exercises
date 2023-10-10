@@ -1,14 +1,22 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
 
+using System;
+using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 
 var stopWatch = new Stopwatch();
 stopWatch.Start();
-var input = SinglePermutations("abcfddssdfd");
+var input = SinglePermutations("aabb");
 stopWatch.Stop();
 
 Console.WriteLine(stopWatch.ElapsedMilliseconds);
+
+foreach (var item in input)
+{
+    Console.WriteLine(item);
+}
 
 
 
@@ -18,7 +26,7 @@ static List<string> SinglePermutations(string s)
     List<char> elements = s.ToList();
     var result = "";
     Reccursive(permutations, elements, result);
-    permutations.Distinct();
+    permutations = permutations.Distinct().ToList();
     return permutations;
 }
 
